@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    {
-      "name": "ralph-wiggum",
-      "git": "https://github.com/Th0rgal/opencode-ralph-wiggum.git"
-    }
-  ]
-}
