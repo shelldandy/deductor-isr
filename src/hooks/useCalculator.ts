@@ -33,7 +33,9 @@ export function useCalculator() {
                 subsidio: 0,
                 totalPayable: resicoTax,
                 deductionResult: null,
-                regime
+                regime,
+                isrWithoutDeductions: resicoTax,
+                savingsFromDeductions: 0
             };
         } else if (regime === 'sueldos_salarios') {
             // Sueldos: Personal deductions apply
@@ -101,6 +103,18 @@ export function useCalculator() {
             isrResult.totalPayable = Math.max(0, isrResult.isr - subsidio);
         }
 
+        // Calculate ISR without deductions for comparison (RESICO already returned above)
+        const isrNoDeductionsResult = calculateISR(monthlyIncome);
+        let isrWithoutDeductions: number;
+        // Apply subsidio if applicable
+        if (regime === 'sueldos_salarios' && monthlyIncome <= SUBSIDIO_LIMITE_INGRESO) {
+            isrWithoutDeductions = Math.max(0, isrNoDeductionsResult.isr - SUBSIDIO_MENSUAL);
+        } else {
+            isrWithoutDeductions = isrNoDeductionsResult.isr;
+        }
+
+        const savingsFromDeductions = isrWithoutDeductions - isrResult.totalPayable;
+
         return {
             baseGravable,
             totalDeductions,
@@ -108,7 +122,9 @@ export function useCalculator() {
             subsidio: isrResult.subsidio,
             totalPayable: isrResult.totalPayable,
             breakdown: isrResult.breakdown,
-            regime
+            regime,
+            isrWithoutDeductions,
+            savingsFromDeductions
         };
 
     }, [state]);

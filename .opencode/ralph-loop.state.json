@@ -1,9 +1,0 @@
-{
-  "active": true,
-  "iteration": 1,
-  "maxIterations": 10,
-  "completionPromise": "COMPLETE",
-  "prompt": "Build @docs/IMPLEMENTATION_PLAN.md Output <promise>DONE</promise> when complete.",
-  "startedAt": "2026-01-16T02:16:04.738Z",
-  "model": ""
-}
