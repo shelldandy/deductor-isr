@@ -6,7 +6,7 @@ export function Header() {
             <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Calculator className="h-6 w-6 text-primary" />
-                    <h1 className="text-xl font-bold">Calculadora ISR México 2025</h1>
+                    <h1 className="text-xl font-bold">Calculadora ISR México {new Date().getFullYear()}</h1>
                 </div>
                 <div className="text-sm text-muted-foreground">
                     Cálculo mensual y anual
