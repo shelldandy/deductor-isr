@@ -7,6 +7,7 @@ import { useCalculatorContext } from '@/context/CalculatorContext';
 import type { ArrendamientoMethod, ArrendamientoDeductions } from '@/lib/types';
 import { DEDUCCION_CIEGA_PORCENTAJE } from '@/lib/constants';
 import { Home, FileText, Calculator } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const money = (val: number) => new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN' }).format(val);
 
@@ -58,7 +59,10 @@ export function ArrendamientoOptions() {
                         <RadioGroupItem value="ciega" id="ciega" className="peer sr-only" />
                         <Label
                             htmlFor="ciega"
-                            className="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer hover:bg-accent/50 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5"
+                            className={cn(
+                                "flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer hover:bg-accent/50",
+                                method === 'ciega' && "border-primary bg-primary/5"
+                            )}
                         >
                             <Calculator className="h-5 w-5 mt-0.5 text-primary" />
                             <div className="flex-1">
@@ -79,7 +83,10 @@ export function ArrendamientoOptions() {
                         <RadioGroupItem value="comprobados" id="comprobados" className="peer sr-only" />
                         <Label
                             htmlFor="comprobados"
-                            className="flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer hover:bg-accent/50 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5"
+                            className={cn(
+                                "flex items-start gap-3 p-4 rounded-lg border-2 cursor-pointer hover:bg-accent/50",
+                                method === 'comprobados' && "border-primary bg-primary/5"
+                            )}
                         >
                             <FileText className="h-5 w-5 mt-0.5 text-primary" />
                             <div className="flex-1">

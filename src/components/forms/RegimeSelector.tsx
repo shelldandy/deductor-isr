@@ -48,7 +48,7 @@ export function RegimeSelector() {
                     <Label
                         htmlFor={regime.value}
                         className={cn(
-                            "flex flex-col h-full bg-card hover:bg-accent/50 cursor-pointer rounded-xl border-2 border-muted p-4 transition-all hover:border-primary peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary",
+                            "flex flex-col h-full bg-card hover:bg-accent/50 cursor-pointer rounded-xl border-2 border-muted p-4 transition-all hover:border-primary",
                             state.regime === regime.value ? "border-primary bg-accent/10" : ""
                         )}
                     >
