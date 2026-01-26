@@ -1,9 +1,12 @@
 // Tax Regimes
-export type TaxRegime = 
-  | 'resico' 
-  | 'sueldos_salarios' 
-  | 'actividad_empresarial' 
+export type TaxRegime =
+  | 'resico'
+  | 'sueldos_salarios'
+  | 'actividad_empresarial'
   | 'arrendamiento';
+
+// Optimization Profiles
+export type OptimizationProfile = 'maximo' | 'moderado' | 'conservador' | 'retiro';
 
 // Deduction method for Arrendamiento
 export type ArrendamientoMethod = 'ciega' | 'comprobados';
